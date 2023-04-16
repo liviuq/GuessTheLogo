@@ -1,16 +1,12 @@
 # guess_the_logo
 
-A new Flutter project.
+This is the official repository for the project GuessTheLogo for the Mobile Programming class @FII.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Requirement 
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+GuessTheLogo – Create a game app that will make the user guess the brand name of
+certain logos displayed as pictures. The app should have a collection of pictures with
+logos of brands, tagged with the brand name. The user will be displayed the picture and
+would have to write the name of the brand. The app should have a welcome screen, the
+game, and a menu with “New Game”, “HighScore” and social media Share.
