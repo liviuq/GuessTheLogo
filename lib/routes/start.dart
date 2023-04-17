@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'about.dart';
+import 'game.dart';
 
 class StartRoute extends StatelessWidget {
   const StartRoute({super.key});
@@ -49,7 +50,14 @@ class StartRoute extends StatelessWidget {
                       size: 24.0,
                       color: Colors.blueAccent,
                     ),
-                    onPressed: () => {},
+                    onPressed: () => {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const GameRoute(),
+                        ),
+                      ),
+                    },
                   ),
                 ),
                 Padding(
@@ -69,7 +77,7 @@ class StartRoute extends StatelessWidget {
                       size: 24.0,
                       color: Colors.blueAccent,
                     ),
-                    onPressed: () => {},
+                    onPressed: () {},
                   ),
                 ),
                 Padding(
