@@ -35,7 +35,7 @@ class WelcomeRoute extends StatelessWidget {
               const Center(
                 child: Image(
                   // placeholder for the logo of the game
-                  image: AssetImage('assets/logos/apple.png'),
+                  image: AssetImage('assets/apple.png'),
                 ),
               ),
               FloatingActionButton.extended(
