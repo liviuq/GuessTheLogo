@@ -63,7 +63,7 @@ class AboutRoute extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: Image.asset(
-                        'assets/images/placeholder.jpeg',
+                        'assets/logos/apple.png',
                         width: 200,
                         height: 200,
                       ),
