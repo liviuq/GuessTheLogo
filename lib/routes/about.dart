@@ -6,10 +6,82 @@ class AboutRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.amber,
       appBar: AppBar(
-        title: const Text('About the developer'),
+        actions: <Widget>[
+          IconButton(
+            color: Colors.transparent,
+            icon: const Icon(Icons.add_alert),
+            tooltip: 'Show Snackbar',
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Text('You found an easter egg'),
+                ),
+              );
+            },
+          ),
+        ],
+        centerTitle: true,
+        title: const Text('About section'),
+        backgroundColor: Colors.transparent,
       ),
-      body: Text('test'),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(10.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text(
+                    'Guess the logo',
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Image.asset(
+                    'assets/images/placeholder.jpeg',
+                    width: 200,
+                    height: 200,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Text(
+                  'Contact me:',
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+              ),
+              const ListTile(
+                leading: Icon(Icons.email),
+                title: Text('petrache.andrei1@gmail.com'),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Text(
+                  'Follow me:',
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+              ),
+              const ListTile(
+                leading: Icon(Icons.link),
+                title: Text('Github: liviuq'),
+              )
+            ],
+          )
+        ],
+      ),
     );
   }
 }
