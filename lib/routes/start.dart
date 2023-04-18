@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/button_highscore.dart';
+import '../widgets/button_share.dart';
 import 'about.dart';
 import 'game.dart';
 
@@ -65,25 +66,9 @@ class StartRoute extends StatelessWidget {
                   padding: EdgeInsets.all(15.0),
                   child: HighscoreButton(),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: FloatingActionButton.extended(
-                    heroTag: 'shareOnSocial',
-                    label: const Text(
-                      'Share your score!',
-                    ),
-                    backgroundColor: const Color(0xffe5e5e5),
-                    foregroundColor: const Color(0xff003049),
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                    ),
-                    icon: const Icon(
-                      Icons.share,
-                      size: 24.0,
-                      color: Colors.blueAccent,
-                    ),
-                    onPressed: () => {},
-                  ),
+                const Padding(
+                  padding: EdgeInsets.all(15.0),
+                  child: ShareButton(),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(15.0),
