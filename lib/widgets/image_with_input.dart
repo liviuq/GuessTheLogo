@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:guess_the_logo/widgets/button_highscore.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ImageWithInput extends StatefulWidget {
@@ -140,6 +141,12 @@ class _ImageWithInputState extends State<ImageWithInput> {
                           } else {
                             _livesRemaining--;
                           }
+
+                          if (_score > _highscore) {
+                            print('new highscore!');
+                            _setHighscore(_score);
+                          }
+
                           print(
                               'guess = ${guessController.text}, answer = $_currentAnswer. score = $_score. lives = $_livesRemaining. highscore = $_highscore');
                           guessController.clear();
@@ -157,6 +164,10 @@ class _ImageWithInputState extends State<ImageWithInput> {
                       }
                     },
                   ),
+                ),
+                const Padding(
+                  padding: EdgeInsets.all(20.0),
+                  child: HighscoreButton(),
                 ),
               ],
             ),
