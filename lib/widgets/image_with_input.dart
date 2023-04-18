@@ -141,7 +141,7 @@ class _ImageWithInputState extends State<ImageWithInput> {
                             _livesRemaining--;
                           }
                           print(
-                              'guess = ${guessController.text}, answer = ${_currentAnswer}. score = ${_score}. lives = ${_livesRemaining}. highscore = $_highscore');
+                              'guess = ${guessController.text}, answer = $_currentAnswer. score = $_score. lives = $_livesRemaining. highscore = $_highscore');
                           guessController.clear();
                         });
                       }
