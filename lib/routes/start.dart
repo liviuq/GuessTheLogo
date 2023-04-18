@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/button_highscore.dart';
 import 'about.dart';
 import 'game.dart';
 
@@ -60,25 +61,9 @@ class StartRoute extends StatelessWidget {
                     },
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: FloatingActionButton.extended(
-                    heroTag: 'highScore',
-                    label: const Text(
-                      'Your highscore is 10',
-                    ),
-                    backgroundColor: const Color(0xffe5e5e5),
-                    foregroundColor: const Color(0xff003049),
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                    ),
-                    icon: const Icon(
-                      Icons.arrow_upward_outlined,
-                      size: 24.0,
-                      color: Colors.blueAccent,
-                    ),
-                    onPressed: () {},
-                  ),
+                const Padding(
+                  padding: EdgeInsets.all(15.0),
+                  child: HighscoreButton(),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(15.0),
