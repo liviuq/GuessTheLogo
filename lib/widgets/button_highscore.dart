@@ -48,9 +48,9 @@ class _HighscoreButtonState extends State<HighscoreButton> {
   Widget build(BuildContext context) {
     return FloatingActionButton.extended(
       key: UniqueKey(),
-      heroTag: 'highScore',
+      heroTag: UniqueKey(),
       label: Text(
-        'Your highscore is $_highscore',
+        'Highscore is $_highscore',
       ),
       backgroundColor: const Color(0xffe5e5e5),
       foregroundColor: const Color(0xff003049),
