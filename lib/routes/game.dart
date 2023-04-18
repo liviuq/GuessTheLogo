@@ -23,7 +23,7 @@ class GameRoute extends StatelessWidget {
             ),
           ),
         ),
-        Center(
+        const Center(
           child: ImageWithInput(),
         ),
       ],
