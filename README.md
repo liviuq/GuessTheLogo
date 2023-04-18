@@ -17,10 +17,9 @@ game, and a menu with “New Game”, “HighScore” and social media Share.
 - Welcome screen
 - Main menu with “New Game”, “HighScore” and "About"
 - The core game mechanics
-
+- In-game highscore display
+- "Share" functionality
 
 # Things that need to be implemented:
 
-- In-game highscore display
-- "Share" functionality
 - UI/UX "beauty"
