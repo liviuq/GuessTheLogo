@@ -1,8 +1,8 @@
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ImageWithInput extends StatefulWidget {
   const ImageWithInput({super.key});
@@ -12,11 +12,21 @@ class ImageWithInput extends StatefulWidget {
 }
 
 class _ImageWithInputState extends State<ImageWithInput> {
+  // for the text field to get the current input text
   TextEditingController guessController = TextEditingController();
+
+  // list of image paths
   List<String> _images = [];
+
+  // current image drawn on the screen
   int _currentIndex = 0;
   String _currentAnswer = '';
+
+  // current score
   int _score = 0;
+  int _highscore = 8;
+
+  //continue untill no lives remaining
   int _livesRemaining = 3;
 
   @override
@@ -26,15 +36,27 @@ class _ImageWithInputState extends State<ImageWithInput> {
   }
 
   Future<void> _getAssetKeys() async {
+    // getting the assets folder from android
+    // code snippet provided by Flutter docs
     final manifestContent = await rootBundle.loadString('AssetManifest.json');
     final Map<String, dynamic> manifestMap = json.decode(manifestContent);
     final keys =
         manifestMap.keys.where((String key) => key.contains('.png')).toList();
 
+    // obtaining shared preferences
+    final prefs = await SharedPreferences.getInstance();
+
     setState(() {
       _images = keys;
       _currentAnswer = _images[0].replaceFirst('assets/', '');
+      _highscore = prefs.getInt('highscore') ?? -11;
     });
+  }
+
+  // method to set the highscore
+  Future<void> _setHighscore(int newHighscore) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setInt('highscore', newHighscore);
   }
 
   @override
@@ -119,12 +141,16 @@ class _ImageWithInputState extends State<ImageWithInput> {
                             _livesRemaining--;
                           }
                           print(
-                              'guess = ${guessController.text}, answer = ${_currentAnswer}. score = ${_score}. lives = ${_livesRemaining}');
+                              'guess = ${guessController.text}, answer = ${_currentAnswer}. score = ${_score}. lives = ${_livesRemaining}. highscore = $_highscore');
                           guessController.clear();
                         });
                       }
 
                       if (_livesRemaining == 0) {
+                        if (_score > _highscore) {
+                          print('new highscore!');
+                          _setHighscore(_score);
+                        }
                         Navigator.pop(
                           context,
                         );
