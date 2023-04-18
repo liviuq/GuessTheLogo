@@ -57,81 +57,83 @@ class _ImageWithInputState extends State<ImageWithInput> {
               ),
             ),
           ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: _images.isEmpty
-                    ? const CircularProgressIndicator()
-                    : Image.asset(
-                        _images[_currentIndex],
-                        width: 256,
-                        height: 256,
-                      ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(15),
-                child: TextField(
-                  cursorColor: Colors.black,
-                  style: const TextStyle(color: Colors.black),
-                  textAlign: TextAlign.left,
-                  controller: guessController,
-                  decoration: InputDecoration(
-                      filled: true,
-                      fillColor: const Color(0xffe5e5e5),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(50.0),
-                        borderSide: BorderSide.none,
-                      ),
-                      hintText: 'Enter a name'),
+          SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: _images.isEmpty
+                      ? const CircularProgressIndicator()
+                      : Image.asset(
+                          _images[_currentIndex],
+                          width: 256,
+                          height: 256,
+                        ),
                 ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(20.0),
-                child: FloatingActionButton.extended(
-                  heroTag: 'submitGuess',
-                  label: const Text(
-                    'Submit your guess!',
+                Padding(
+                  padding: const EdgeInsets.all(15),
+                  child: TextField(
+                    cursorColor: Colors.black,
+                    style: const TextStyle(color: Colors.black),
+                    textAlign: TextAlign.left,
+                    controller: guessController,
+                    decoration: InputDecoration(
+                        filled: true,
+                        fillColor: const Color(0xffe5e5e5),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(50.0),
+                          borderSide: BorderSide.none,
+                        ),
+                        hintText: 'Enter a name'),
                   ),
-                  backgroundColor: const Color(0xffe5e5e5),
-                  foregroundColor: const Color(0xff003049),
-                  shape: const RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                  ),
-                  icon: const Icon(
-                    Icons.arrow_upward_outlined,
-                    size: 24.0,
-                    color: Colors.blueAccent,
-                  ),
-                  onPressed: () {
-                    if (guessController.text.isNotEmpty) {
-                      setState(() {
-                        _currentAnswer = _images[_currentIndex]
-                            .replaceFirst('assets/', '')
-                            .replaceFirst('.png', '');
-                        _currentIndex = (_currentIndex + 1) % _images.length;
-                        if (_currentAnswer == guessController.text) {
-                          _score++;
-                        } else {
-                          _livesRemaining--;
-                        }
-                        print(
-                            'guess = ${guessController.text}, answer = ${_currentAnswer}. score = ${_score}. lives = ${_livesRemaining}');
-                        guessController.clear();
-                      });
-                    }
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: FloatingActionButton.extended(
+                    heroTag: 'submitGuess',
+                    label: const Text(
+                      'Submit your guess!',
+                    ),
+                    backgroundColor: const Color(0xffe5e5e5),
+                    foregroundColor: const Color(0xff003049),
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                    ),
+                    icon: const Icon(
+                      Icons.arrow_upward_outlined,
+                      size: 24.0,
+                      color: Colors.blueAccent,
+                    ),
+                    onPressed: () {
+                      if (guessController.text.isNotEmpty) {
+                        setState(() {
+                          _currentAnswer = _images[_currentIndex]
+                              .replaceFirst('assets/', '')
+                              .replaceFirst('.png', '');
+                          _currentIndex = (_currentIndex + 1) % _images.length;
+                          if (_currentAnswer == guessController.text) {
+                            _score++;
+                          } else {
+                            _livesRemaining--;
+                          }
+                          print(
+                              'guess = ${guessController.text}, answer = ${_currentAnswer}. score = ${_score}. lives = ${_livesRemaining}');
+                          guessController.clear();
+                        });
+                      }
 
-                    if (_livesRemaining == 0) {
-                      Navigator.pop(
-                        context,
-                      );
-                    }
-                  },
+                      if (_livesRemaining == 0) {
+                        Navigator.pop(
+                          context,
+                        );
+                      }
+                    },
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),
