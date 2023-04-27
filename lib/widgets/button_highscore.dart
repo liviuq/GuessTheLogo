@@ -12,6 +12,7 @@ class HighscoreButton extends StatefulWidget {
 
 class _HighscoreButtonState extends State<HighscoreButton> {
   // initialising the highscore
+  // ignore: prefer_typing_uninitialized_variables
   var _highscore;
 
   // timer to update the highscore

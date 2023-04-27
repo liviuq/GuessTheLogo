@@ -143,10 +143,12 @@ class _ImageWithInputState extends State<ImageWithInput> {
                           }
 
                           if (_score > _highscore) {
+                            // ignore: avoid_print
                             print('new highscore!');
                             _setHighscore(_score);
                           }
 
+                          // ignore: avoid_print
                           print(
                               'guess = ${guessController.text}, answer = $_currentAnswer. score = $_score. lives = $_livesRemaining. highscore = $_highscore');
                           guessController.clear();
@@ -155,6 +157,7 @@ class _ImageWithInputState extends State<ImageWithInput> {
 
                       if (_livesRemaining == 0) {
                         if (_score > _highscore) {
+                          // ignore: avoid_print
                           print('new highscore!');
                           _setHighscore(_score);
                         }
