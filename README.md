@@ -11,7 +11,7 @@ logos of brands, tagged with the brand name. The user will be displayed the pict
 would have to write the name of the brand. The app should have a welcome screen, the
 game, and a menu with “New Game”, “HighScore” and social media Share.
 
-# Things that are working correctly as per project requirements:
+# Implemented:
 
 - Collection of pictures tagged with brand name
 - Welcome screen
@@ -20,6 +20,14 @@ game, and a menu with “New Game”, “HighScore” and social media Share.
 - In-game highscore display
 - "Share" functionality
 
-# Things that need to be implemented:
+# Need implementation/ changes:
 
 - UI/UX "beauty"
+- Image randomizer
+- Lives count visible on playscreen
+- Wrong/Correct answer animation(?)
+
+# On-going:
+
+- End screen after game has finished
+- Highscore button resets score in-game (DONE)
