@@ -64,7 +64,7 @@ class _HighscoreButtonState extends State<HighscoreButton> {
         borderRadius: BorderRadius.all(Radius.circular(15.0)),
       ),
       icon: const Icon(
-        Icons.arrow_upward_outlined,
+        Icons.info_outlined,
         size: 24.0,
         color: Colors.blueAccent,
       ),

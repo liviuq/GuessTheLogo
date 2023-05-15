@@ -18,9 +18,6 @@ class WelcomeRoute extends StatelessWidget {
               colors: [
                 Color(0xff003049),
                 Color(0xffd62828),
-                Color(0xfff77f00),
-                Color(0xfffcbf49),
-                Color(0xffeae2b7),
               ],
               tileMode: TileMode.mirror,
             ),

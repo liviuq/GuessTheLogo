@@ -2,8 +2,10 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:guess_the_logo/widgets/button_highscore.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../routes/endgame.dart';
+import 'button_highscore.dart';
 
 class ImageWithInput extends StatefulWidget {
   const ImageWithInput({super.key});
@@ -25,7 +27,10 @@ class _ImageWithInputState extends State<ImageWithInput> {
 
   // current score
   int _score = 0;
-  int _highscore = 8;
+  int _highscore = 0;
+
+  // max lives
+  final int _maxLifes = 3;
 
   //continue untill no lives remaining
   int _livesRemaining = 3;
@@ -50,7 +55,7 @@ class _ImageWithInputState extends State<ImageWithInput> {
     setState(() {
       _images = keys;
       _currentAnswer = _images[0].replaceFirst('assets/', '');
-      _highscore = prefs.getInt('highscore') ?? -11;
+      _highscore = prefs.getInt('highscore') ?? 0;
     });
   }
 
@@ -58,6 +63,30 @@ class _ImageWithInputState extends State<ImageWithInput> {
   void _setHighscore(int newHighscore) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setInt('highscore', newHighscore);
+  }
+
+  List<Widget> _buildHearts() {
+    List<Widget> hearts = [];
+
+    for (int i = 0; i < _maxLifes; i++) {
+      if (i < _livesRemaining) {
+        hearts.add(
+          const Icon(
+            Icons.favorite,
+            color: Colors.red,
+          ),
+        );
+      } else {
+        hearts.add(
+          const Icon(
+            Icons.favorite_border,
+            color: Colors.black,
+          ),
+        );
+      }
+    }
+
+    return hearts;
   }
 
   @override
@@ -71,11 +100,8 @@ class _ImageWithInputState extends State<ImageWithInput> {
                 begin: Alignment.topCenter,
                 end: Alignment(0.8, 1),
                 colors: [
-                  Color(0xffffffff),
-                  Color(0xff84dcc6),
-                  Color(0xffa5ffd6),
-                  Color(0xffffa69e),
-                  Color(0xffff686b),
+                  Color(0xff003049),
+                  Color(0xffd62828),
                 ],
               ),
             ),
@@ -161,17 +187,44 @@ class _ImageWithInputState extends State<ImageWithInput> {
                           print('new highscore!');
                           _setHighscore(_score);
                         }
-                        Navigator.pop(
+                        Navigator.pushReplacement(
                           context,
+                          MaterialPageRoute(
+                            builder: (context) => EndGameRoute(
+                              score: _score,
+                              highscore: _highscore,
+                            ),
+                          ),
                         );
                       }
                     },
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.all(20.0),
-                  child: HighscoreButton(
-                    canReset: false,
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const HighscoreButton(
+                        canReset: false,
+                      ),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 30,
+                          vertical: 12,
+                        ),
+                        decoration: const BoxDecoration(
+                          color: Color(0xffe5e5e5),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(15.0),
+                          ),
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: _buildHearts(),
+                        ),
+                      )
+                    ],
                   ),
                 ),
               ],

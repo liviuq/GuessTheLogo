@@ -14,11 +14,8 @@ class GameRoute extends StatelessWidget {
               begin: Alignment.topCenter,
               end: Alignment(0.8, 1),
               colors: [
-                Color(0xfffff9ec),
-                Color(0xffffdccc),
-                Color(0xfffcb1a6),
-                Color(0xfffb6376),
-                Color(0xff5d2a42),
+                Color(0xff003049),
+                Color(0xffd62828),
               ],
             ),
           ),

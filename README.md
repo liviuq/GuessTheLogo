@@ -19,15 +19,13 @@ game, and a menu with “New Game”, “HighScore” and social media Share.
 - The core game mechanics
 - In-game highscore display
 - "Share" functionality
-
+- Lives count visible on playscreen
+- Wrong/Correct answer animation(?)
+- End screen after game has finished
+- Highscore button resets score in-game
 # Need implementation/ changes:
 
 - UI/UX "beauty"
-- Image randomizer
-- Lives count visible on playscreen
-- Wrong/Correct answer animation(?)
 
 # On-going:
-
-- End screen after game has finished
-- Highscore button resets score in-game (DONE)
+- Image randomizer

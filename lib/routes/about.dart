@@ -14,11 +14,8 @@ class AboutRoute extends StatelessWidget {
               begin: Alignment.topCenter,
               end: Alignment(0.8, 1),
               colors: [
-                Color(0xff40916c),
-                Color(0xff74c69d),
-                Color(0xffb7e4c7),
-                Color(0xffeae2b7),
-                Color(0xfff0a6ca),
+                Color(0xff003049),
+                Color(0xffd62828),
               ],
               tileMode: TileMode.mirror,
             ),
