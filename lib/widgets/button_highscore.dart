@@ -18,7 +18,7 @@ class HighscoreButton extends StatefulWidget {
 class _HighscoreButtonState extends State<HighscoreButton> {
   // initialising the highscore
   // ignore: prefer_typing_uninitialized_variables
-  var _highscore;
+  int _highscore = 0;
 
   // timer to update the highscore
   late Timer timer;
@@ -38,7 +38,7 @@ class _HighscoreButtonState extends State<HighscoreButton> {
   Future<void> _loadHighscore() async {
     final prefs = await SharedPreferences.getInstance();
     setState(() {
-      _highscore = prefs.getInt('highscore') ?? 'non-existent';
+      _highscore = prefs.getInt('highscore') ?? 0;
     });
   }
 
