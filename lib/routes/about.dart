@@ -52,11 +52,15 @@ class AboutRoute extends StatelessWidget {
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.all(10.0),
+                      const Padding(
+                        padding: EdgeInsets.all(10.0),
                         child: Text(
                           'Guess the logo',
-                          style: Theme.of(context).textTheme.titleLarge,
+                          style: TextStyle(
+                            fontSize: 24,
+                            color: Colors.white,
+                            backgroundColor: Colors.transparent,
+                          ),
                         ),
                       ),
                       Padding(
@@ -72,28 +76,44 @@ class AboutRoute extends StatelessWidget {
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: const [
                     Padding(
-                      padding: const EdgeInsets.all(10.0),
+                      padding: EdgeInsets.all(10.0),
                       child: Text(
                         'Contact me:',
-                        style: Theme.of(context).textTheme.titleLarge,
+                        style: TextStyle(
+                          fontSize: 24,
+                          color: Colors.white,
+                          backgroundColor: Colors.transparent,
+                        ),
                       ),
                     ),
-                    const ListTile(
-                      leading: Icon(Icons.email),
+                    ListTile(
+                      leading: Icon(
+                        Icons.email,
+                        color: Colors.white,
+                      ),
                       title: Text('petrache.andrei1@gmail.com'),
+                      textColor: Colors.white,
                     ),
                     Padding(
-                      padding: const EdgeInsets.all(10.0),
+                      padding: EdgeInsets.all(10.0),
                       child: Text(
                         'Follow me:',
-                        style: Theme.of(context).textTheme.titleLarge,
+                        style: TextStyle(
+                          fontSize: 24,
+                          color: Colors.white,
+                          backgroundColor: Colors.transparent,
+                        ),
                       ),
                     ),
-                    const ListTile(
-                      leading: Icon(Icons.link),
+                    ListTile(
+                      leading: Icon(
+                        Icons.link,
+                        color: Colors.white,
+                      ),
                       title: Text('Github: liviuq'),
+                      textColor: Colors.white,
                     )
                   ],
                 )
