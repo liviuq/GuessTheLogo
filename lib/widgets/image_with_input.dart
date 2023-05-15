@@ -55,7 +55,7 @@ class _ImageWithInputState extends State<ImageWithInput> {
   }
 
   // method to set the highscore
-  Future<void> _setHighscore(int newHighscore) async {
+  void _setHighscore(int newHighscore) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setInt('highscore', newHighscore);
   }
@@ -170,7 +170,9 @@ class _ImageWithInputState extends State<ImageWithInput> {
                 ),
                 const Padding(
                   padding: EdgeInsets.all(20.0),
-                  child: HighscoreButton(),
+                  child: HighscoreButton(
+                    canReset: false,
+                  ),
                 ),
               ],
             ),

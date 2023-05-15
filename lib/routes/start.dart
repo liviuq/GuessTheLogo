@@ -64,7 +64,9 @@ class StartRoute extends StatelessWidget {
                 ),
                 const Padding(
                   padding: EdgeInsets.all(15.0),
-                  child: HighscoreButton(),
+                  child: HighscoreButton(
+                    canReset: true,
+                  ),
                 ),
                 const Padding(
                   padding: EdgeInsets.all(15.0),

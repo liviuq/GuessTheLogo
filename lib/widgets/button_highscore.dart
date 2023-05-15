@@ -4,7 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class HighscoreButton extends StatefulWidget {
-  const HighscoreButton({super.key});
+  final bool canReset;
+
+  const HighscoreButton({
+    super.key,
+    required this.canReset,
+  });
 
   @override
   State<HighscoreButton> createState() => _HighscoreButtonState();
@@ -64,7 +69,7 @@ class _HighscoreButtonState extends State<HighscoreButton> {
         color: Colors.blueAccent,
       ),
       onPressed: () {
-        _resetHighscore();
+        widget.canReset ? _resetHighscore() : null;
       },
     );
   }
