@@ -23,9 +23,9 @@ game, and a menu with “New Game”, “HighScore” and social media Share.
 - Wrong/Correct answer animation(?)
 - End screen after game has finished
 - Highscore button resets score in-game
+- Image randomizer
 # Need implementation/ changes:
 
-- UI/UX "beauty"
+- UI/UX "beauty" (please help)
 
 # On-going:
-- Image randomizer

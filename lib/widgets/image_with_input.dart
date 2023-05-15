@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -116,7 +117,10 @@ class _ImageWithInputState extends State<ImageWithInput> {
                   child: _images.isEmpty
                       ? const CircularProgressIndicator()
                       : Image.asset(
-                          _images[_currentIndex],
+                          // assign a random number within range to _currentIndex
+                          // so it matches the image position in the list
+                          _images[_currentIndex =
+                              Random().nextInt(_images.length)],
                           width: 256,
                           height: 256,
                         ),
