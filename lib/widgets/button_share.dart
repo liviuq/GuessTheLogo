@@ -12,7 +12,7 @@ class ShareButton extends StatelessWidget {
   Future<void> shareHighscore() async {
     final prefs = await SharedPreferences.getInstance();
 
-    int highscore = prefs.getInt('highscore') ?? -11;
+    int highscore = prefs.getInt('highscore') ?? 0;
     Share.share('Congratulations on guessing $highscore logos in a row!',
         subject: 'My personal highscore');
   }
